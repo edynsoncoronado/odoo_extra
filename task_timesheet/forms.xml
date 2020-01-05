@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="task_timesheet_inherit" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.timesheet</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='timesheet_ids']/tree/field[@name='unit_amount']" position="after">
+					<field name="state" invisible="True"/>
+					<field name="date_start" attrs="{'readonly': [('state', 'in', ['doing', 'done'])]}"/>
+					<field name="date_end" attrs="{'readonly': [('state', 'in', ['done', 'todo'])]}"/>
+					<button name="action_start" type="object" string="Iniciar" icon="fa-star-o icon" attrs="{'invisible': [('state', 'in', ['doing', 'done'])]}"/>
+					<button name="action_restart" type="object" string="ReIniciar" icon="fa-sun-o icon" attrs="{'invisible': [('state', 'in', ['todo'])]}"/>
+					<button name="action_end" type="object" string="Terminar" icon="fa-star icon" attrs="{'invisible': [('state', 'in', ['done', 'todo'])]}"/>
+				</xpath>
+			</field>
+		</record>
+
+</odoo>
