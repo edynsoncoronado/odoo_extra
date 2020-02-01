@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <record id="report_product" model="ir.actions.report.xml">
+        <field name="name">report.report_product</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">product.product</field>
+        <field name="report_name">report_product</field>
+        <field name="report_rml">jasper_report_product/report/products_report.jrxml</field>
+        <field name="report_type">pdf</field>
+        <field name="jasper_report">True</field>
+        <field name="jasper_output">pdf</field>
+    </record>
+</data>
+</openerp>
